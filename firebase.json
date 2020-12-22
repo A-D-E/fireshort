@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site":"yoursitename",
+    "site":"ramly-dev",
     "public": "build",
     "ignore": [
       "firebase.json",
