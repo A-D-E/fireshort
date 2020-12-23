@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { loginUser } from "../actions";
-import { withStyles } from "@material-ui/styles";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
+import { loginUser } from "../actions"
+import { withStyles } from "@material-ui/styles"
 
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
-import Container from "@material-ui/core/Container";
+import Avatar from "@material-ui/core/Avatar"
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import Typography from "@material-ui/core/Typography"
+import Paper from "@material-ui/core/Paper"
+import Container from "@material-ui/core/Container"
 
 import hut from '../assets/img/hut.svg'
 
@@ -39,30 +39,30 @@ const styles = () => ({
     marginBottom: 5,
     textAlign: "center"
   }
-});
+})
 
 class Login extends Component {
-  state = { email: "", password: "" };
+  state = { email: "", password: "" }
 
   handleEmailChange = ({ target }) => {
-    this.setState({ email: target.value });
-  };
+    this.setState({ email: target.value })
+  }
 
   handlePasswordChange = ({ target }) => {
-    this.setState({ password: target.value });
-  };
+    this.setState({ password: target.value })
+  }
 
   handleSubmit = () => {
-    const { dispatch } = this.props;
-    const { email, password } = this.state;
+    const { dispatch } = this.props
+    const { email, password } = this.state
 
-    dispatch(loginUser(email, password));
-  };
+    dispatch(loginUser(email, password))
+  }
 
   render() {
-    const { classes, loginError, isAuthenticated } = this.props;
+    const { classes, loginError, isAuthenticated } = this.props
     if (isAuthenticated) {
-      return <Redirect to="/admin" />;
+      return <Redirect to="/admin" />
     } else {
       return (
         <Container component="main" maxWidth="xs">
@@ -111,7 +111,7 @@ class Login extends Component {
             </Button>
           </Paper>
         </Container>
-      );
+      )
     }
   }
 }
@@ -121,7 +121,7 @@ function mapStateToProps(state) {
     isLoggingIn: state.auth.isLoggingIn,
     loginError: state.auth.loginError,
     isAuthenticated: state.auth.isAuthenticated
-  };
+  }
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Login));
+export default withStyles(styles)(connect(mapStateToProps)(Login))

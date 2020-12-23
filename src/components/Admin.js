@@ -202,12 +202,16 @@ class Admin extends Component {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <img src={hut} alt='RA-MICRO LS' />
+                  <Tooltip title='zu RA-MICRO wechseln'>
+                    <img src={hut} alt='RA-MICRO LS' />
+                  </Tooltip>
                 </a>
               </Typography>
-              <Button color='inherit' onClick={this.handleLogout}>
-                <ExitToAppIcon />
-              </Button>
+              <Tooltip title='Abmelden'>
+                <Button color='inherit' onClick={this.handleLogout}>
+                  <ExitToAppIcon />
+                </Button>
+              </Tooltip>
             </Toolbar>
           </AppBar>
         </div>
