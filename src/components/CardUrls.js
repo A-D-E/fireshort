@@ -32,7 +32,7 @@ export default function CardUrls(props) {
       <Container className={classes.cardGrid} maxWidth='md'>
         <Grid container spacing={4}>
           {props.shortUrls.map((card) => (
-            <Grid item key={card.id} xs={12} sm={6} md={4}>
+            <Grid item key={card.id} xs={12} sm={6}>
               <Card className={classes.card}>
                 <CardHeader
                   action={
