@@ -35,6 +35,9 @@ function Root() {
       ),
       useNextVariants: true,
       htmlFontSize: 18,
+      button: {
+        textTransform: 'none',
+      },
     },
   })
   theme = responsiveFontSizes(theme)

@@ -11,7 +11,7 @@ import myFirebase, { db } from '../firebase/firebase'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 import {  AppBar, Button, Container, CssBaseline,
-          Fab, LinearProgress, Snackbar, Toolbar, Typography 
+          Fab, LinearProgress, Snackbar, Toolbar, Tooltip, Typography 
         } from '@material-ui/core'
 
 import { withStyles } from "@material-ui/core/styles"
@@ -243,20 +243,22 @@ class Admin extends Component {
                   color='textPrimary'
                   gutterBottom
                 >
-                  Oops! Nothing here.
+                  Noch keine URL gespeichert
                 </Typography>
               </Container>
             </div>
           )}
 
-          <Fab
-            aria-label='Add'
-            className={classes.fab}
-            color='primary'
-            onClick={this.handleClickOpen}
-          >
-            <AddIcon />
-          </Fab>
+          <Tooltip title='Neue URL-Weiterleitung hinzufügen'>
+            <Fab
+              aria-label='Add'
+              className={classes.fab}
+              color='primary'
+              onClick={this.handleClickOpen}
+            >
+              <AddIcon />
+            </Fab>
+          </Tooltip>
 
           <UrlsDialog
             state={this.state}
@@ -272,7 +274,7 @@ class Admin extends Component {
             onClose={this.handleToastClose}
           >
             <Alert onClose={this.handleToastClose} severity='success'>
-              Successfully added!
+              Neue URL-Weiterleitung erfolgreich gespeichert!
             </Alert>
           </Snackbar>
         </main>
