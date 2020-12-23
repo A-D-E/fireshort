@@ -42,51 +42,110 @@ export default function ListUrls(props) {
                         <TableHead>
                             <TableRow>
                                 <TableCell key="curl" align="left" style={{ minWidth: "100px" }}>
-                                    Short URL
+                                    gekürzte URL
                                 </TableCell>
                                 <TableCell key="lurl" align="left" style={{ minWidth: "100px" }}>
-                                    Long URL
+                                    original URL
                                 </TableCell>
                                 <TableCell key="action" align="right" style={{ minWidth: "100px" }}>
-                                    Action
+                                    
                                 </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {props.shortUrls.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((card) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={card.id}>
-                                        <TableCell key="curl" align="left" style={{ minWidth: "100px" }}>
-                                            <Button
-                                                startIcon={
-                                                    <FileCopyOutlinedIcon />
-                                                }
-                                                onClick={() => { navigator.clipboard.writeText(window.location.hostname + "/" + card.data.curl) }}
-                                                classes={{
-                                                    label: classes.label
-                                                }}
-                                                >{card.data.curl}</Button>
-                                        </TableCell>
-                                        <TableCell key="lurl" align="left" style={{ minWidth: "100px" }}>
-                                            <Box bgcolor="text.primary" color="background.paper" p={2} style={{ overflowX: 'auto', overflowY: 'hidden', whiteSpace: "nowrap" }}>
-                                                {card.data.lurl}
-                                            </Box>
-                                        </TableCell>
-                                        <TableCell key="action" align="right" style={{ minWidth: "100px" }}>
-                                            <ButtonGroup variant="outlined" color="default">
-                                                <Button size="small" color="primary" href={card.data.lurl} target="_blank">
-                                                    <VisibilityIcon />
-                                                </Button>
-                                                <Button size="small" onClick={() => props.handleEditShortUrl(card.data.curl)}>
-                                                    <EditIcon />
-                                                </Button>
-                                                <Button size="small" color="secondary" onClick={() => props.handleDeleteShortUrl(card.data.curl)}>
-                                                    <DeleteForeverIcon />
-                                                </Button>
-                                            </ButtonGroup>
-                                        </TableCell>
-                                    </TableRow>
-                                );
+                                  <TableRow
+                                    hover
+                                    role='checkbox'
+                                    tabIndex={-1}
+                                    key={card.id}
+                                  >
+                                    <TableCell
+                                      key='curl'
+                                      align='left'
+                                      style={{ minWidth: '100px' }}
+                                    >
+                                      <Button
+                                        startIcon={<FileCopyOutlinedIcon />}
+                                        onClick={() => {
+                                          navigator.clipboard.writeText(
+                                            window.location.hostname +
+                                              '/' +
+                                              card.data.curl
+                                          )
+                                        }}
+                                        classes={{
+                                          label: classes.label,
+                                        }}
+                                      >
+                                        {card.data.curl}
+                                      </Button>
+                                    </TableCell>
+                                    <TableCell
+                                      key='lurl'
+                                      align='left'
+                                      style={{
+                                        minWidth: '100px',
+                                        maxWidth: 400,
+                                      }}
+                                    >
+                                      <Box
+                                        bgcolor='text.primary'
+                                        color='background.paper'
+                                        p={2}
+                                        style={{
+                                          overflowX: 'auto',
+                                          overflowY: 'hidden',
+                                          whiteSpace: 'nowrap',
+                                        }}
+                                      >
+                                        {card.data.lurl}
+                                      </Box>
+                                    </TableCell>
+                                    <TableCell
+                                      key='action'
+                                      align='right'
+                                      style={{ minWidth: '100px' }}
+                                    >
+                                      <ButtonGroup
+                                        variant='outlined'
+                                        color='default'
+                                      >
+                                        <Button
+                                          size='small'
+                                          color='inherit'
+                                          href={card.data.lurl}
+                                          target='_blank'
+                                        >
+                                          <VisibilityIcon />
+                                        </Button>
+                                        <Button
+                                          size='small'
+                                          color='inherit'
+                                          onClick={() =>
+                                            props.handleEditShortUrl(
+                                              card.data.curl
+                                            )
+                                          }
+                                        >
+                                          <EditIcon />
+                                        </Button>
+                                        <Button
+                                          size='small'
+                                          color='inherit'
+                                          onClick={() =>
+                                            props.handleDeleteShortUrl(
+                                              card.data.curl
+                                            )
+                                          }
+                                        >
+                                          <DeleteForeverIcon color='primary' />
+                                        </Button>
+                                      </ButtonGroup>
+                                    </TableCell>
+                                  </TableRow>
+                                )
                             })}
                         </TableBody>
                     </Table>

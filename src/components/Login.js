@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
 
+import hut from '../assets/img/hut.svg'
+
 const styles = () => ({
   "@global": {
     body: {
@@ -27,13 +29,13 @@ const styles = () => ({
   avatar: {
     marginLeft: "auto",
     marginRight: "auto",
-    backgroundColor: "#f50057"
+    backgroundColor: "#cc0000"
   },
   form: {
     marginTop: 1
   },
   errorText: {
-    color: "#f50057",
+    color: "#cc0000",
     marginBottom: 5,
     textAlign: "center"
   }
@@ -65,10 +67,10 @@ class Login extends Component {
       return (
         <Container component="main" maxWidth="xs">
           <Paper className={classes.paper}>
-            <Avatar className={classes.avatar} src="/favicon.ico">
+            <Avatar className={classes.avatar} src={hut}>
             </Avatar>
             <Typography component="h1" variant="h5">
-              FireShort
+              RA-MICRO LS
             </Typography>
             <br></br>
             <TextField
@@ -76,7 +78,7 @@ class Login extends Component {
               margin="normal"
               fullWidth
               id="email"
-              label="Email Address"
+              label="E-Mail"
               name="email"
               onChange={this.handleEmailChange}
             />
@@ -85,14 +87,14 @@ class Login extends Component {
               margin="normal"
               fullWidth
               name="password"
-              label="Password"
+              label="Passwort"
               type="password"
               id="password"
               onChange={this.handlePasswordChange}
             />
             {loginError && (
               <Typography component="p" className={classes.errorText}>
-                Incorrect email or password.
+                Fehler beim Anmelden
               </Typography>
             )}
             <br></br>
@@ -105,7 +107,7 @@ class Login extends Component {
               className={classes.submit}
               onClick={this.handleSubmit}
             >
-              Sign In
+              Anmelden
             </Button>
           </Paper>
         </Container>
