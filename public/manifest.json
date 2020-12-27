@@ -1,6 +1,6 @@
 {
-  "short_name": "FireShort",
-  "name": "FireShort - Open Source URL Shortener",
+  "short_name": "RA-MICRO SL",
+  "name": "RA-MICRO SL - Open Source URL Shortener",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "./icons/favicon-192x192.png",
+      "src": "./icons/android-icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./icons/favicon-512x512.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
