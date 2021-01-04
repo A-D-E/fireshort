@@ -71,8 +71,8 @@ class Admin extends Component {
   }
 
   handleSubmit = (event) => {
-    var lurl = this.state.lurl
-    var curl = this.state.curl
+    const lurl = this.state.lurl
+    const curl = this.state.curl
     const self = this
 
     let data = {
@@ -99,12 +99,12 @@ class Admin extends Component {
 
   handleEditShortUrl = (curl) => {
     const self = this
-    var docref = db.collection('shorturls').doc(curl)
+    const docref = db.collection('shorturls').doc(curl)
     docref.get().then(doc => {
       if (!doc.exists) {
         console.log('No such document!')
       } else {
-        var data = doc.data()
+        const data = doc.data()
 
         self.setState({lurl: data.lurl})
         self.setState({curl: data.curl})
@@ -163,13 +163,13 @@ class Admin extends Component {
 			if (user) {
         self.setState({ user })
         self.updateUrls()
-        var viewModeRef = db.collection('settings').doc("viewMode")
+        const viewModeRef = db.collection('settings').doc("viewMode")
         viewModeRef.get()
           .then(doc => {
             if (!doc.exists) {
               console.log('No viewMode set!')
             } else {
-              var data = doc.data()
+              const data = doc.data()
               self.setState({viewMode: data.value})
             }
           })

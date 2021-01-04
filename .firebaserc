@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ramly-dev"
+    "default": "ramly-prod",
+    "dev": "ramly-dev"
   }
 }
